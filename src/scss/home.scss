@@ -1,0 +1,21 @@
+.home {
+  background-color: #000e0f;
+
+  &__content {
+    background: url("../img/home-bg.jpg") 100% 100% no-repeat;
+    background-size: cover;
+  }
+
+  &__heading {
+    color: #ffffff;
+    position: relative;
+    z-index: 2;
+
+    padding: 250px 0;
+  }
+
+  &__fade {
+    height: 1rem;
+    background-image: linear-gradient(to bottom, #000e0f 30%, rgba(234, 237, 237, 0.7) 70%, rgba(234,237,237,1) 100%);
+  }
+}

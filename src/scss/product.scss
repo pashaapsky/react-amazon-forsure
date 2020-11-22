@@ -1,0 +1,52 @@
+.product {
+  background-color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 15px;
+
+  margin: 0 10px;
+
+  width: 100%;
+  min-width: 100px;
+
+  &__img {
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 15px;
+  }
+
+  &__info {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    flex-grow: 1;
+    margin-bottom: 5px;
+  }
+
+  &__price-whole {
+    font-size: 21px;
+
+  }
+
+  &__price-symbol {
+    position: relative;
+    font-size: 19px;
+    margin-right: 2px;
+  }
+
+  &__btn {
+    background-color: #f0c14b;
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111111;
+  }
+}

@@ -1,0 +1,20 @@
+.footer {
+  background-color: #000e0f;
+  text-align: center;
+  padding: 20px 0;
+
+  &__link {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+
+    transition: opacity 0.3s linear;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+}
+
+
