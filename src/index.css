@@ -17,6 +17,13 @@ code {
     monospace;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+}
+
 .fixed-container {
   max-width: 1260px;
   margin: 0 auto;

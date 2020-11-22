@@ -1,21 +1,38 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../scss/product.scss'
+import currencyFormatter from "currency-formatter";
+import {useStateValue} from "../context/stateProvider";
 
-function Product({src, description, price, rating}) {
+function Product({id, src, description, price, rating}) {
+    const [{basket}, dispatch] = useStateValue();
+
+    useEffect(() => {
+
+    });
+
+    const addToBasket = () => {
+
+        dispatch({
+            type: "ADD_TO_BASKET",
+            item: {
+                id, src, description, price, rating
+            }
+        })
+    };
+
     return (
-        <div className="product">
+        <div className="product" id={id}>
             <img
                 className="product__img"
                 src={src}
-                alt="specter-image"
+                alt="product-image"
             />
 
             <div className="product__info">
                 <p className="product__description">{description}</p>
 
                 <div className="product__price">
-                    <span className="product__price-symbol">$</span>
-                    <strong className="product__price-whole">{price}</strong>
+                    <strong className="product__price-whole">{currencyFormatter.format(price, { locale: 'en-US' })}</strong>
                 </div>
 
                 <div className="product__rating">
@@ -23,7 +40,12 @@ function Product({src, description, price, rating}) {
                 </div>
             </div>
 
-            <button className="product__btn">Add to basket</button>
+            <button
+                className="product__btn"
+                onClick={addToBasket}
+            >
+                Add to basket
+            </button>
         </div>
     );
 }

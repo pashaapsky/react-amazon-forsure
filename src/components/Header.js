@@ -1,16 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {NavLink} from 'react-router-dom';
 import '../scss/header.scss'
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import {useStateValue} from "../context/stateProvider";
 
 function Header() {
+    const [{basket}, dispatch] = useStateValue();
+
+    useEffect(() => {
+    });
+
     return (
         <div className="header">
-            <img
-                className="header__logo"
-                src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-                alt="Amazon logo"
-            />
+            <NavLink exact to="/">
+                <img
+                    className="header__logo"
+                    src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+                    alt="Amazon logo"
+                />
+            </NavLink>
 
             <div className="header__search">
                 <input
@@ -52,13 +61,15 @@ function Header() {
                 </div>
             </div>
 
-            <div className="header__option-basket">
-                <ShoppingBasketIcon />
+            <NavLink to="/checkout">
+                <div className="header__option-basket">
+                    <ShoppingBasketIcon/>
 
-                <span className="header__span-two basket-count">
-                    0
-                </span>
-            </div>
+                    <span className="header__span-two basket-count">
+                        {basket.length}
+                    </span>
+                </div>
+            </NavLink>
         </div>
     );
 }
