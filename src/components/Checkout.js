@@ -6,7 +6,7 @@ import CheckoutProduct from "./CheckoutProduct";
 import {useStateValue} from "../context/stateProvider";
 
 function Checkout() {
-    const [{basket}, dispatch] = useStateValue();
+    const [{basket}] = useStateValue();
 
     return (
         <div className="checkout">
@@ -40,7 +40,7 @@ function Checkout() {
                                     {basket.map((item) => {
                                         return (
                                             <CheckoutProduct
-                                                key={item.id}
+                                                key={Math.random() * 10**10}
                                                 id={item.id}
                                                 src={item.src}
                                                 description={item.description}

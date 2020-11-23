@@ -4,12 +4,19 @@ import '../scss/header.scss'
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import {useStateValue} from "../context/stateProvider";
+import {auth} from "../config/firebase";
 
 function Header() {
-    const [{basket}, dispatch] = useStateValue();
+    const [{basket, user}, dispatch] = useStateValue();
 
     useEffect(() => {
     });
+
+    const handleAuthentication = () => {
+        if (user) {
+            auth.signOut();
+        }
+    };
 
     return (
         <div className="header">
@@ -30,46 +37,49 @@ function Header() {
             </div>
 
             <div className="header__nav">
-                <div className="header__option">
-                    <span className="header__span-one">
-                        Hello Guest
-                    </span>
+                <NavLink className="header__link" to={user ? "" : "/login"}>
+                    <div className="header__option" onClick={handleAuthentication}>
+                        <span className="header__span-one">
+                            {user ? user.email : 'Hello Guest'}
+                        </span>
 
-                    <span className="header__span-two">
-                        Sign in
-                    </span>
-                </div>
+                        <span className="header__span-two">
+                            {user ? 'Sign Out' : 'Sign In'}
+                        </span>
+                    </div>
+                </NavLink>
 
-                <div className="header__option">
-                    <span className="header__span-one">
-                        Returns
-                    </span>
+                <NavLink className="header__link" to="/">
+                    <div className="header__option">
+                        <span className="header__span-one">
+                            Returns
+                        </span>
 
-                    <span className="header__span-two">
-                        & Orders
-                    </span>
-                </div>
+                        <span className="header__span-two">
+                            & Orders
+                        </span>
+                    </div>
+                </NavLink>
 
-                <div className="header__option">
-                    <span className="header__span-one">
-                        Your
-                    </span>
+                <NavLink className="header__link" to="/">
+                    <div className="header__option">
+                        <span className="header__span-one">Your</span>
 
-                    <span className="header__span-two">
-                        Prime
-                    </span>
-                </div>
+                        <span className="header__span-two">Prime</span>
+                    </div>
+                </NavLink>
             </div>
 
-            <NavLink to="/checkout">
-                <div className="header__option-basket">
+            <div className="header__option-basket">
+                <NavLink className="header__link row-link" to="/checkout">
                     <ShoppingBasketIcon/>
 
                     <span className="header__span-two basket-count">
                         {basket.length}
                     </span>
-                </div>
-            </NavLink>
+                </NavLink>
+            </div>
+
         </div>
     );
 }
