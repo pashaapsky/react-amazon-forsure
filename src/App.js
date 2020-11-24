@@ -6,8 +6,14 @@ import Products from "./components/Products";
 import Footer from "./components/Footer";
 import Checkout from "./components/Checkout";
 import Login from "./components/Login";
+import Payment from "./components/Payment";
 import {auth} from "./config/firebase";
 import {useStateValue} from "./context/stateProvider";
+import {loadStripe} from '@stripe/stripe-js';
+import {Elements} from '@stripe/react-stripe-js';
+import {stripePublishKey} from './config/stripe'
+
+const stripePromise = loadStripe(stripePublishKey);
 
 function App() {
     const [state, dispatch] = useStateValue();
@@ -50,6 +56,14 @@ function App() {
                     <Route path="/checkout">
                         <Header/>
                         <Checkout/>
+                        <Footer/>
+                    </Route>
+
+                    <Route path="/payment">
+                        <Header/>
+                        <Elements stripe={stripePromise} >
+                            <Payment />
+                        </Elements>
                         <Footer/>
                     </Route>
                 </Switch>

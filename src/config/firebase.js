@@ -1,13 +1,13 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBpR5L3iZG9u--N-SpDT9jEE2f8LGEd54w",
-    authDomain: "react--forsure.firebaseapp.com",
-    databaseURL: "https://react--forsure.firebaseio.com",
-    projectId: "react--forsure",
-    storageBucket: "react--forsure.appspot.com",
-    messagingSenderId: "669910046634",
-    appId: "1:669910046634:web:7a42dd54851a59d5edbdd3"
+    apiKey: "AIzaSyDwg8lIvdPX78pRov32-uphHgiU4B-dQBE",
+    authDomain: "react-b1494.firebaseapp.com",
+    databaseURL: "https://react-b1494.firebaseio.com",
+    projectId: "react-b1494",
+    storageBucket: "react-b1494.appspot.com",
+    messagingSenderId: "350804153400",
+    appId: "1:350804153400:web:dfebdf7cda3338c3fd82cd"
 };
 
 // Initialize Firebase
@@ -15,6 +15,5 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 const auth = firebase.auth();
-
 
 export {db, auth};

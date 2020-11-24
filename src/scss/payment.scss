@@ -1,0 +1,38 @@
+.payment {
+  flex-grow: 1;
+
+  background-color: white;
+
+
+  &__title {
+    flex: 0.2;
+  }
+
+  &__header {
+    font-weight: 400;
+    text-align: center;
+
+    padding: 10px;
+
+    background-color: rgb(234,237,237);
+    border-bottom: 1px solid lightgray;
+  }
+
+  &__section {
+    display: flex;
+
+    padding: 20px;
+    margin: 0 20px;
+    border-bottom: 1px solid lightgray;
+  }
+
+  &__adress, &__items {
+    flex: 0.8;
+  }
+
+  &__details {
+    flex: 0.8;
+    max-width: 400px;
+  }
+
+}

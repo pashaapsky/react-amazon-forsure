@@ -39,8 +39,9 @@ function Checkout() {
                                 <div className="checkout__products">
                                     {basket.map((item) => {
                                         return (
+
                                             <CheckoutProduct
-                                                key={Math.random() * 10**10}
+                                                key={Math.random() * 10 ** 10}
                                                 id={item.id}
                                                 src={item.src}
                                                 description={item.description}
