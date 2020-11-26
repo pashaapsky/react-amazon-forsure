@@ -37,6 +37,12 @@ const stateReducer = (state, action) => {
                 basket: newBasket,
                 totalPrice: state.totalPrice - currencyFormatter.unformat(action.price, {code: 'USD'})
             };
+        case 'EMPTY_BASKET':
+            return {
+                ...state,
+                basket: [],
+                totalPrice: 0
+            };
         // auth actions
         case 'SET_USER' :
             return {

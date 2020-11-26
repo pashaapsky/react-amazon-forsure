@@ -49,7 +49,7 @@ function Header() {
                     </div>
                 </NavLink>
 
-                <NavLink className="header__link" to="/">
+                <NavLink className="header__link" to="/orders">
                     <div className="header__option">
                         <span className="header__span-one">
                             Returns

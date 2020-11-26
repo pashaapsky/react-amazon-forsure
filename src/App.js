@@ -7,11 +7,13 @@ import Footer from "./components/Footer";
 import Checkout from "./components/Checkout";
 import Login from "./components/Login";
 import Payment from "./components/Payment";
+import Orders from "./components/Orders";
 import {auth} from "./config/firebase";
 import {useStateValue} from "./context/stateProvider";
 import {loadStripe} from '@stripe/stripe-js';
 import {Elements} from '@stripe/react-stripe-js';
 import {stripePublishKey} from './config/stripe'
+
 
 const stripePromise = loadStripe(stripePublishKey);
 
@@ -42,15 +44,14 @@ function App() {
         <Router>
             <div className="App">
                 <Switch>
-                    <Route path="/login">
-                        <Login/>
+                    <Route path="/orders">
+                        <Header/>
+                        <Orders />
+                        <Footer/>
                     </Route>
 
-                    <Route exact path='/'>
-                        <Header/>
-                        <Home/>
-                        <Products/>
-                        <Footer/>
+                    <Route path="/login">
+                        <Login/>
                     </Route>
 
                     <Route path="/checkout">
@@ -64,6 +65,13 @@ function App() {
                         <Elements stripe={stripePromise} >
                             <Payment />
                         </Elements>
+                        <Footer/>
+                    </Route>
+
+                    <Route exact path='/'>
+                        <Header/>
+                        <Home/>
+                        <Products/>
                         <Footer/>
                     </Route>
                 </Switch>

@@ -3,7 +3,7 @@ import currencyFormatter from "currency-formatter";
 import "../scss/checkout-product.scss"
 import {useStateValue} from "../context/stateProvider";
 
-function CheckoutProduct({id, src, description, price}) {
+function CheckoutProduct({id, src, description, price, hideButton}) {
     const [{basket}, dispatch] = useStateValue();
 
     const removeFromBasket = (id, price) => {
@@ -23,35 +23,42 @@ function CheckoutProduct({id, src, description, price}) {
                     alt="product-image"
                 />
 
+
                 <div className="checkout-product__info">
                     <a href="#" className="checkout-product__info-link">
                         <p className="checkout-product__description">{description}</p>
                     </a>
 
-                    <span className="checkout-product__stock">In Stock</span>
+                    {!hideButton && (
+                        <>
+                            <span className="checkout-product__stock">In Stock</span>
 
-                    <div className="checkout-product__extra-options">
-                        <label className="checkout-product__label">
-                            <input className="checkout-product__input" type="checkbox"/>
-                            This is a gift
-                        </label>
+                            <div className="checkout-product__extra-options">
+                                <label className="checkout-product__label">
+                                    <input className="checkout-product__input" type="checkbox"/>
+                                    This is a gift
+                                </label>
 
-                        <small>
-                            <a className="checkout-product__learn-link" href="#">Learn More</a>
-                        </small>
-                    </div>
+                                <small>
+                                    <a className="checkout-product__learn-link" href="#">Learn More</a>
+                                </small>
+                            </div>
 
-                    <div className="checkout-product__actions">
-                        <button
-                            className="checkout-product__delete-btn option-btn"
-                            onClick={() => removeFromBasket(id, price)}
-                        >Delete
-                        </button>
 
-                        <button className="checkout-product__save-btn option-btn">Save for later</button>
+                            <div className="checkout-product__actions">
+                                <button
+                                    className="checkout-product__delete-btn option-btn"
+                                    onClick={() => removeFromBasket(id, price)}
+                                >Delete
+                                </button>
 
-                        <button className="checkout-product__compare-btn option-btn">Compare with similar items</button>
-                    </div>
+                                <button className="checkout-product__save-btn option-btn">Save for later</button>
+
+                                <button className="checkout-product__compare-btn option-btn">Compare with similar items</button>
+                            </div>
+                        </>
+                    )}
+
                 </div>
             </div>
 

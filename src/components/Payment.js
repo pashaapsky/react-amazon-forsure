@@ -4,6 +4,7 @@ import axios from '../axios'
 import currencyFormatter from "currency-formatter";
 import {useStateValue} from "../context/stateProvider";
 import CheckoutProduct from "./CheckoutProduct";
+import {db} from '../config/firebase'
 import {CardElement, useElements, useStripe} from "@stripe/react-stripe-js";
 import '../scss/payment.scss'
 
@@ -13,7 +14,7 @@ function Payment() {
     const [processing, setProcessing] = useState("");
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
-    const [clientSecret, setClientSecret] = useState(true);
+    const [clientSecret, setClientSecret] = useState("");
 
     const stripe = useStripe();
     const elements = useElements();
@@ -21,11 +22,10 @@ function Payment() {
     const history = useHistory();
 
     useEffect(() => {
-        console.log('getClientSecret', clientSecret);
         const getClientSecret = async () => {
             const response = await axios({
                 method: 'post',
-                // Stripe expects the total in a currencies subunits
+                // Для Stripe.js нужна цена не в долларах а в центах => * 100
                 url: `/payments/create?total=${totalPrice * 100}`
             });
 
@@ -45,17 +45,31 @@ function Payment() {
                card: elements.getElement(CardElement),
            }
         }).then(({ paymentIntent }) => {
-            // paymentIntent = payment confirmation
             setSucceeded(true);
             setError(null);
             setProcessing(false);
+
+            // firebase db extracting order
+            db
+                .collection('users')
+                .doc(user.uid)
+                .collection('orders')
+                .doc(paymentIntent.id)
+                .set({
+                    basket: basket,
+                    amount: paymentIntent.amount,
+                    created: paymentIntent.created,
+                });
+
+            dispatch({
+                type: 'EMPTY_BASKET'
+            });
 
             history.replace('/orders');
         });
     };
 
     const handleChange = (event) => {
-
         //listen for changes in the CardElement
         //and display errors
         setDisabled(event.empty);
