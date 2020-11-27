@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import {NavLink, useHistory} from 'react-router-dom';
 import {auth} from "../config/firebase";
-import {db} from "../config/firebase";
 import "../scss/login.scss"
-
 
 function Login() {
     const history = useHistory();

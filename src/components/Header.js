@@ -33,6 +33,7 @@ function Header() {
                     className="header__search-input"
                     type="text"
                 />
+
                 <SearchIcon className="header__search-icon"/>
             </div>
 
@@ -79,7 +80,6 @@ function Header() {
                     </span>
                 </NavLink>
             </div>
-
         </div>
     );
 }

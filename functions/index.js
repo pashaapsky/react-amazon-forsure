@@ -11,6 +11,10 @@ const app = express();
 app.use(cors({origin:true}));
 app.use(express.json());
 
+app.get('/', (req, res) => {
+   res.status(200).send('hello world');
+});
+
 app.post('/payments/create', async (req, res) => {
    const total = req.query.total;
 
@@ -31,5 +35,5 @@ app.post('/payments/create', async (req, res) => {
 // Listen command
 exports.api = functions.https.onRequest(app);
 
-// example endpoint
+// адресс для тестирования request - response c помощью cloud functions
 // http://localhost:5001/react-b1494/us-central1/api
