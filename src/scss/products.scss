@@ -5,6 +5,38 @@
 
   &__row {
     display: flex;
-    margin: 0 -10px 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.two-items {
+
+  .product {
+    flex: 0 0 100%;
+
+    @media (min-width: 768px) {
+      flex: 0 1 49%;
+    }
+  }
+
+}
+
+.three-items {
+
+  .product {
+    flex: 0 0 100%;
+
+    @media (min-width: 576px) {
+      flex: 0 1 49%;
+    }
+
+    @media (min-width: 768px) {
+      flex: 0 1 32%;
+    }
   }
 }

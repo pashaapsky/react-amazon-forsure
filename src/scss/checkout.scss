@@ -1,0 +1,167 @@
+.checkout {
+  flex-grow: 1;
+  background-color: #eaeded;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #232f3e;;
+    color: #ffffff;
+
+    padding: 10px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__nav-left {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__nav-link {
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+
+    padding: 5px;
+    margin-right: 5px;
+
+    transition: all 0.3ms linear;
+    border: 1px solid transparent;
+
+    &:hover {
+      border: 1px solid white;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__header {
+    padding: 10px;
+
+    border-bottom: 1px solid lightgray;
+  }
+
+  &__container {
+    @media (min-width: 768px) {
+      padding: 20px;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  &__left-side {
+    flex: 1 0 100%;
+    width: 100%;
+
+    background-color: #ffffff;
+
+    padding: 20px;
+    margin-bottom: 20px;
+
+    @media (min-width: 768px) {
+      flex: 1 0 75%;
+      width: 80%;
+
+      margin-bottom: 0;
+    }
+  }
+
+  &__right-side {
+    flex: 0 0 100%;
+    width: 100%;
+
+    padding: 20px;
+    background-color: #ffffff;
+
+    max-height: 260px;
+    margin-bottom: 20px;
+
+    @media (min-width: 768px) {
+      flex: 0 0 20%;
+      width: 20%;
+
+      margin-left: 15px;
+
+      margin-bottom: 0;
+    }
+  }
+
+  &__products {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__empty-basket {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  &__empty-img {
+    flex: 0 0 30%;
+
+    object-fit: contain;
+
+    @media (min-width: 768px) {
+      margin-right: 20px;
+    }
+  }
+
+  &__empty-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__empty-header {
+    border: none;
+    margin-bottom: 5px;
+  }
+
+  &__shop-today-link {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: calc(24/14);
+
+    color: #007185;
+
+    margin-bottom: 15px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__go-shop-link {
+    text-decoration: none;
+    text-align: center;
+  }
+
+
+}

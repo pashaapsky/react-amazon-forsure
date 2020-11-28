@@ -2,21 +2,29 @@
   background-color: #ffffff;
 
   display: flex;
+
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
 
   padding: 15px;
+  margin-bottom: 0.8rem;
 
-  margin: 0 10px;
-
-  width: 100%;
-  min-width: 100px;
+  &:last-child {
+    margin-right: 0;
+  }
 
   &__img {
-    max-height: 200px;
+    max-height: 160px;
     object-fit: contain;
     margin-bottom: 15px;
+    padding: 20px;
+
+    transition: transform 0.3s linear;
+
+    &:hover {
+      transform: scale(1.2);
+    }
   }
 
   &__info {
@@ -34,7 +42,6 @@
 
   &__price-whole {
     font-size: 21px;
-
   }
 
   &__price-symbol {
@@ -48,5 +55,11 @@
     border: 1px solid;
     border-color: #a88734 #9c7e31 #846a29;
     color: #111111;
+
+    transition: all 0.3s linear;
+
+    &:hover {
+      background-color: #f0e0a2;
+    }
   }
 }

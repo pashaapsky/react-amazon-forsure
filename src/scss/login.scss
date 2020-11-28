@@ -1,0 +1,111 @@
+.login {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__logo {
+    width: 100px;
+
+    margin: 20px auto;
+    object-fit: contain;
+  }
+
+  &__container {
+    width: 300px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding: 20px;
+  }
+
+  &__header {
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+
+  &__sign-form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    input {
+      height: 30px;
+
+      padding: 10px;
+      margin-bottom: 10px;
+
+      background-color: white;
+
+      border-radius: 3px;
+      border: 1px solid #a6a6a6;
+
+      outline-color: orange;
+    }
+
+    p {
+      margin-top: 15px;
+      font-size: 12px;
+    }
+
+    span {
+      cursor: pointer;
+      color: blue;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__sign-in-btn {
+    background-color: #f0c14b;
+    border-radius: 3px;
+    height: 30px;
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+
+    opacity: 0.9;
+
+    transition: all 0.3s linear;
+    outline: none;
+
+    &:hover {
+      background-color: #fabb30;;
+      opacity: 1;
+    }
+  }
+
+  &__register-btn {
+    border-radius: 3px;
+    height: 30px;
+    margin-top: 10px;
+    border: 1px solid darkgray;
+
+    cursor: pointer;
+    box-shadow: 0 1px 0 rgba(255,255,255,.6) inset;
+
+    opacity: 0.9;
+
+    outline: none;
+    transition: all 0.3s linear;
+
+    &:hover {
+      background-color: #a8a4a6;
+      opacity: 1;
+    }
+  }
+}

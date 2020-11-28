@@ -1,0 +1,58 @@
+.subtotal {
+  display: flex;
+  flex-direction: column;
+
+  &__count {
+    font-size: 22px;
+    line-height: 24px;
+
+    @media (min-width: 991px) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__total-price {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+
+    @media (min-width: 991px) {
+      font-size: 24px;
+    }
+  }
+
+  &__gift {
+    display: flex;
+    align-items: center;
+
+    font-size: 14px;
+
+    margin-bottom: 15px;
+
+    @media (min-width: 1140px) {
+      font-size: 17px;
+    }
+  }
+}
+
+.orange-btn {
+  background: #f0c14b;
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+  border-radius: 3px;
+  color: #111;
+
+  outline: none;
+  cursor: pointer;
+
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .4) inset;
+
+  padding: 5px;
+
+  transition: opacity 0.3ms linear;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
