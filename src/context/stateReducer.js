@@ -7,8 +7,6 @@ export const initialState = {
 };
 
 const stateReducer = (state, action) => {
-    console.log('action', action);
-
     switch (action.type) {
         //basket actions
         case 'ADD_TO_BASKET':

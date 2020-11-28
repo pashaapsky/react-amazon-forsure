@@ -6,7 +6,7 @@ function Products() {
     return (
         <div className="products ">
             <div className="products__container fixed-container">
-                <div className="products__row">
+                <div className="products__row two-items">
                     <Product
                         id={Math.floor(Math.random() * 10 ** 5)}
                         src="https://images-na.ssl-images-amazon.com/images/I/71thf1SYnGL._AC_SL1500_.jpg"
@@ -24,7 +24,7 @@ function Products() {
                     />
                 </div>
 
-                <div className="products__row">
+                <div className="products__row three-items">
                     <Product
                         id={Math.floor(Math.random() * 10 ** 5)}
                         src="https://m.media-amazon.com/images/I/71DVgBTdyLL._FMwebp__.jpg"
@@ -50,7 +50,7 @@ function Products() {
                     />
                 </div>
 
-                <div className="products__row">
+                <div className="products__row three-items">
                     <Product
                         id={Math.floor(Math.random() * 10 ** 5)}
                         src="https://m.media-amazon.com/images/I/71rejwthFaL._AC_SL1500_.jpg"

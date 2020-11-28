@@ -1,15 +1,13 @@
 .payment {
   flex-grow: 1;
-
   background-color: white;
 
 
-  &__title {
-    flex: 0.2;
-  }
-
   &__header {
-    font-weight: 400;
+    font-size: 26px;
+    font-weight: 700;
+    color: #007185;
+
     text-align: center;
 
     padding: 10px;
@@ -18,20 +16,29 @@
     border-bottom: 1px solid lightgray;
   }
 
-  &__section {
-    display: flex;
-
-    padding: 20px;
-    margin: 0 20px;
-    border-bottom: 1px solid lightgray;
+  &__list {
+    padding: 0;
   }
 
-  &__adress, &__items {
-    flex: 0.8;
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
+
+    &:last-child {
+      align-items: center;
+      border-bottom: none;
+    }
+  }
+
+  &__address-info {
+    margin-bottom: 10px;
   }
 
   &__details {
-    flex: 0.8;
+    width: 100%;
     max-width: 400px;
 
     button {
@@ -52,5 +59,8 @@
       }
     }
   }
+}
 
+.email {
+  color: blue;
 }

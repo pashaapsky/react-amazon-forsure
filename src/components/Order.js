@@ -6,13 +6,15 @@ import currencyFormatter from "currency-formatter";
 
 function Order({order}) {
     return (
-        <div className="order">
+        <li className="orders__item order">
             <h2 className="order__header">Order</h2>
 
-            <p>{moment.unix(order.data.created).format('MMMM Do YYYY, h:mma')}</p>
-
             <p className="order__id">
-                <small>{order.id}</small>
+                <strong>{order.id}</strong>
+            </p>
+
+            <p className="order__date">
+                {moment.unix(order.data.created).format('MMMM Do YYYY, h:mma')}
             </p>
 
             {order.data.basket.map(item => (
@@ -26,10 +28,14 @@ function Order({order}) {
                 />
             ))}
 
-            <strong className="order__price">
-                {currencyFormatter.format(order.data.amount / 100, {locale: 'en-US'})}
-            </strong>
-        </div>
+            <div className="order__price-details">
+                <span className="order__total">Order total: </span>
+
+                <strong className="order__price">
+                    {currencyFormatter.format(order.data.amount / 100, {locale: 'en-US'})}
+                </strong>
+            </div>
+        </li>
     );
 }
 

@@ -39,7 +39,6 @@ function Checkout() {
                                 <div className="checkout__products">
                                     {basket.map((item) => {
                                         return (
-
                                             <CheckoutProduct
                                                 key={Math.random() * 10 ** 10}
                                                 id={item.id}
@@ -72,8 +71,9 @@ function Checkout() {
 
                                     <a className="checkout__shop-today-link" href="#">Shop today`s deals</a>
 
-                                    <NavLink to="/" className="checkout__go-shop-link orange-btn">Harry up to add
-                                        some</NavLink>
+                                    <NavLink to="/" className="checkout__go-shop-link orange-btn">
+                                        Harry up to add some
+                                    </NavLink>
                                 </div>
                             </div>
                         </div>

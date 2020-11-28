@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import '../scss/product.scss'
 import currencyFormatter from "currency-formatter";
 import {useStateValue} from "../context/stateProvider";
@@ -6,12 +6,7 @@ import {useStateValue} from "../context/stateProvider";
 function Product({id, src, description, price, rating}) {
     const [{basket}, dispatch] = useStateValue();
 
-    useEffect(() => {
-
-    });
-
     const addToBasket = () => {
-
         dispatch({
             type: "ADD_TO_BASKET",
             item: {
@@ -32,7 +27,8 @@ function Product({id, src, description, price, rating}) {
                 <p className="product__description">{description}</p>
 
                 <div className="product__price">
-                    <strong className="product__price-whole">{currencyFormatter.format(price, { locale: 'en-US' })}</strong>
+                    <strong
+                        className="product__price-whole">{currencyFormatter.format(price, {locale: 'en-US'})}</strong>
                 </div>
 
                 <div className="product__rating">

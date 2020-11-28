@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Products from "./components/Products";
@@ -14,11 +14,10 @@ import {loadStripe} from '@stripe/stripe-js';
 import {Elements} from '@stripe/react-stripe-js';
 import {stripePublishKey} from './config/stripe'
 
-
 const stripePromise = loadStripe(stripePublishKey);
 
 function App() {
-    const [state, dispatch] = useStateValue();
+    const [{user}, dispatch] = useStateValue();
 
     useEffect(() => {
         //firebase auth listener
@@ -40,33 +39,48 @@ function App() {
 
     }, []);
 
+
+    function PrivateRoute({children}) {
+        return (
+            <Route
+                render={() =>
+                    user ? (
+                        children
+                    ) : (
+                        <Redirect to="/login"/>
+                    )
+                }
+            />
+        );
+    }
+
     return (
         <Router>
             <div className="App">
                 <Switch>
-                    <Route path="/orders">
+                    <PrivateRoute path="/orders">
                         <Header/>
-                        <Orders />
+                        <Orders/>
                         <Footer/>
-                    </Route>
+                    </PrivateRoute>
 
                     <Route path="/login">
                         <Login/>
                     </Route>
 
-                    <Route path="/checkout">
+                    <PrivateRoute path="/checkout" >
                         <Header/>
                         <Checkout/>
                         <Footer/>
-                    </Route>
+                    </PrivateRoute>
 
-                    <Route path="/payment">
+                    <PrivateRoute path="/payment">
                         <Header/>
-                        <Elements stripe={stripePromise} >
-                            <Payment />
+                        <Elements stripe={stripePromise}>
+                            <Payment/>
                         </Elements>
                         <Footer/>
-                    </Route>
+                    </PrivateRoute>
 
                     <Route exact path='/'>
                         <Header/>

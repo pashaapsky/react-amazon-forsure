@@ -34,7 +34,7 @@ function Orders() {
                 Your Orders
             </h1>
 
-            <div className="orders__list">
+            <ul className="orders__list">
                 {orders.length
                     ?
                     orders.map(order => (
@@ -43,7 +43,7 @@ function Orders() {
                     :
                     <p>No available orders yet</p>
                 }
-            </div>
+            </ul>
         </div>
     );
 }
